@@ -19,11 +19,16 @@
             <input type="password" id="password" name="password" required>
         </div>
         <div class="form-group">
-            <button type="submit">Login</button>
+            <button id="sign-in" type="submit">Login</button>
         </div>
         <a href="Sign-up.html">Registration</a><br>
-        <a href="home.html">Home</a>
     </form>
 </div>
+<script>
+    document.getElementById("sign-in").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "home.html";
+    });
+</script>
 </body>
 </html>
