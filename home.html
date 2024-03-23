@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
     <h1>Welcome Back!</h1>
     <img src ="logo.svg" width="200" height="200" alt="Logo">
 </header>
-<nav>
-    <ul>
-        <li><a href="doc.html">Documentation</a></li>
-        <li><a href="groups.html">Groups</a></li>
+<nav class="link-bar">
+    <ul class="links">
+        <li class="link"><a href="doc.html">Documentation</a></li>
+        <li class="link"><a href="groups.html">Groups</a></li>
     </ul>
 </nav>
-<pre>
-    TaskManager is a project aimed at managing tasks and organizing work processes.
-    This system allows you to effectively organize tasks for yourself,
-    your team, or employees, track their performance, and plan your workflow.
+<div class="content-center" style="margin-top: 10px;">
+    <div class="text-container" style="max-width: 60%">
+        <div style="font-family: 'Roboto', sans-serif; background-color: white; padding: 10px;">
+            <p>TaskManager is a project aimed at managing tasks and organizing work processes. This system allows you to effectively organize tasks for yourself, your team, or employees, track their performance, and plan your workflow.</p>
 
-    Features:
-    - Create tasks and assign them to individuals or groups.
-    - Set deadlines and priorities for tasks.
-    - Track the progress of tasks and receive notifications.
-    - Collaborate with team members in real-time.
-    - Generate reports and analytics on task performance.
+            <p style="font-weight: bold">Features:</p>
+            <ul>
+                <li>Create tasks and assign them to individuals or groups.</li>
+                <li>Set deadlines and priorities for tasks.</li>
+                <li>Track the progress of tasks and receive notifications.</li>
+                <li>Collaborate with team members in real-time.</li>
+                <li>Generate reports and analytics on task performance.</li>
+            </ul>
 
-    Get started today and streamline your workflow with TaskManager!
+            <p>Get started today and streamline your workflow with Task Manager!</p>
 
-    For more details, check out the <a href="doc.html">Documentation</a> or manage your <a href="groups.html">Groups</a>.
-</pre>
+            <p>For more details, check out the <a href="doc.html">Documentation</a> or manage your <a href="groups.html">Groups</a>.</p>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>

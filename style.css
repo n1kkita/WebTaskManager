@@ -1,0 +1,131 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.link-bar {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 0 0 10px 10px;
+}
+
+.links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+}
+
+
+.link {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.link a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+
+a:hover {
+    background-color: #111;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.text-container {
+    display: flex;
+    border: 2px solid rgb(93, 87, 87);
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.groups-container {
+    margin: 10px;
+    padding: 10px;
+    max-width: 40%;
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 2px solid rgb(93, 87, 87);
+    border-radius: 12px;
+}
+
+.groups-container::-webkit-scrollbar {
+    width: 0;
+}
+
+.group-link {
+    margin-bottom: 10px;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.group-link:hover{
+    cursor: pointer;
+    background-color: #ececec;
+}
+
+.form-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: #ececec;
+    border-radius: 12px;
+    border: 2px solid rgb(93, 87, 87);
+    max-width: 40%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],.form-group input[type="password"], .form-group input[type="email"],.form-group select {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.form-group button {
+    padding: 10px 20px;
+    background-color: #9b9b9b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #696969;
+}
