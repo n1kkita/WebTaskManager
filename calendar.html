@@ -3,6 +3,7 @@
 <head>
     <meta charset='utf-8' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <link rel="stylesheet" href="style.css">
     <script>
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -20,19 +21,22 @@
     <img src='logo.svg' width='200' height='200' alt='Logo'>
     <h2>Group Name</h2>
 </header>
+<nav class="link-bar">
+    <ul class="links">
+        <li class="link"><a href="home.html">Back to Home</a></li>
+        <li class="link"><a href="groups.html">Back to Groups</a></li>
+    </ul>
+</nav>
+<div class="content-center" style="margin-top: 10px;">
+<div class="text-container">
 <section>
     <h2>About Group Calendar</h2>
     <p>Welcome to the Group Calendar page. Here you can view and manage all scheduled events and tasks for your group.</p>
     <p>Use the calendar above to view events by month, week, or day. You can also click on an event to view more details or add new events to the calendar.</p>
     <p>Stay organized and keep track of important deadlines and meetings with the Group Calendar!</p>
 </section>
-
-<section>
-    <a href="home.html">Back to Home</a>
-    <br>
-    <a href="groups.html">Back to Groups</a>
-</section>
-
+</div>
+</div>
 <div id='calendar'></div>
 </body>
 </html>
