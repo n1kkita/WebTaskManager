@@ -36,16 +36,13 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
         const startDateFormatted =
             info.start.getFullYear() + '-' +
             ('0' + (info.start.getMonth() + 1)).slice(-2) + '-' +
-            ('0' + info.start.getDate()).slice(-2) + 'T' +
-            ('0' + info.start.getHours()).slice(-2) + ':' +
-            ('0' + info.start.getMinutes()).slice(-2);
+            ('0' + info.start.getDate()).slice(-2);
 
         const endDateFormatted =
             info.end.getFullYear() + '-' +
             ('0' + (info.end.getMonth() + 1)).slice(-2) + '-' +
-            ('0' + info.end.getDate()).slice(-2) + 'T' +
-            ('0' + info.end.getHours()).slice(-2) + ':' +
-            ('0' + info.end.getMinutes()).slice(-2);
+            ('0' + info.end.getDate()).slice(-2);
+
 
         startDate.value = startDateFormatted;
         endDate.value = endDateFormatted;
