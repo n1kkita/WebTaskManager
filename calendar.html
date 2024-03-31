@@ -18,14 +18,22 @@
     </ul>
 </nav>
 <div class="content-center" style="margin-top: 10px;">
-<div class="text-container">
-<section>
-    <h2>About Group Calendar</h2>
-    <p>Welcome to the Group Calendar page. Here you can view and manage all scheduled events and tasks for your group.</p>
-    <p>Use the calendar above to view events by month, week, or day. You can also click on an event to view more details or add new events to the calendar.</p>
-    <p>Stay organized and keep track of important deadlines and meetings with the Group Calendar!</p>
-</section>
+    <div class="text-container">
+        <section>
+            <h2>About Group Calendar</h2>
+            <p>Welcome to the Group Calendar page. Here you can view and manage all scheduled events and tasks for your group.</p>
+            <p>Use the calendar above to view events by month, week, or day. You can also click on an event to view more details or add new events to the calendar.</p>
+            <p>Stay organized and keep track of important deadlines and meetings with the Group Calendar!</p>
+        </section>
+    </div>
 </div>
+
+<div class="content-center" style="margin-top: 10px;">
+    <div class="text-container">
+        <section>
+            <p>Click on a date to create a task</p>
+        </section>
+    </div>
 </div>
 <div id='calendar'></div>
 
@@ -41,10 +49,10 @@
             <textarea id="task-description-create" name="task-description" rows="4" cols="50"></textarea><br>
 
             <label for="start-date-create">Start:</label><br>
-            <input type="date" id="start-date-create" name="start-date"><br><br>
+            <input type="datetime-local" id="start-date-create" name="start-date"><br><br>
 
             <label for="end-date-create">End:</label><br>
-            <input type="date" id="end-date-create" name="end-date" ><br><br>
+            <input type="datetime-local" id="end-date-create" name="end-date" ><br><br>
 
             <button type="submit">Create</button>
         </form>
@@ -61,9 +69,9 @@
             <p>Опис:</p>
             <div class="text-container" id="task-description"></div>
             <p>Початок:</p>
-            <div class="text-container" style="max-width: 12%" id="start-date"></div>
+            <div class="text-container" style="max-width: 15%" id="start-date"></div>
             <p>Кінець:</p>
-            <div class="text-container" style="max-width: 12%" id="end-date"></div>
+            <div class="text-container" style="max-width: 15%" id="end-date"></div>
         </form>
     </div>
 </div>

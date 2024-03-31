@@ -33,13 +33,24 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
 
         taskFormCreate.reset();
 
-        startDate.value = info.start.toISOString().split('T')[0];
-        endDate.value = info.end.toISOString().split('T')[0];
+        const startDateFormatted =
+            info.start.getFullYear() + '-' +
+            ('0' + (info.start.getMonth() + 1)).slice(-2) + '-' +
+            ('0' + info.start.getDate()).slice(-2) + 'T' +
+            ('0' + info.start.getHours()).slice(-2) + ':' +
+            ('0' + info.start.getMinutes()).slice(-2);
+
+        const endDateFormatted =
+            info.end.getFullYear() + '-' +
+            ('0' + (info.end.getMonth() + 1)).slice(-2) + '-' +
+            ('0' + info.end.getDate()).slice(-2) + 'T' +
+            ('0' + info.end.getHours()).slice(-2) + ':' +
+            ('0' + info.end.getMinutes()).slice(-2);
+
+        startDate.value = startDateFormatted;
+        endDate.value = endDateFormatted;
 
         taskModalCreate.style.display = 'block';
-
-        localStorage.setItem("start", info.start);
-        localStorage.setItem("end", info.end);
     },
     eventClick: function (info){
         const event = info.event;
@@ -47,30 +58,31 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
         taskForm.reset();
 
         taskModal.style.display = 'block';
-        displayTaskInfo(event.title,event.extendedProps.description,event.startStr,event.endStr);
+        displayTaskInfo(event.title,event.extendedProps.description,event.start,event.end);
     }
 });
 calendar.render();
 taskFormCreate.addEventListener("submit", function (e){
     e.preventDefault();
-    create(new Date(localStorage.getItem("start")), new Date(localStorage.getItem("end")));
+    create();
 });
-function create(start,end){
+function create(){
     let taskDescription = document.getElementById("task-description-create").value;
     let taskTitle = document.getElementById("task-title-create").value;
+    let startDate = document.getElementById('start-date-create');
+    let endDate = document.getElementById('end-date-create');
 
-    console.log(start);
-    console.log(end);
+
     calendar.addEvent({
         title: taskTitle,
-        start: start,
-        end: end,
+        start: new Date(startDate.value),
+        end: new Date(endDate.value),
         description: taskDescription,
         allDay: true,
         backgroundColor: 'green',
         textColor: 'white',
     });
-    // Hide the modal
+
     taskModalCreate.style.display = 'none';
 }
 function displayTaskInfo(title,description,start,end){
@@ -81,8 +93,8 @@ function displayTaskInfo(title,description,start,end){
     let endEl = document.getElementById("end-date");
     titleEl.textContent = title;
     descriptionEl.textContent =description;
-    startEl.textContent = start;
-    endEl.textContent = end;
+    startEl.textContent = formatDateForTaskModal(start);
+    endEl.textContent = formatDateForTaskModal(end);
 }
 
 
@@ -93,4 +105,32 @@ document.querySelectorAll(".close").forEach(span=>{
     }
 });
 
+function formatDateForTaskModal(date) {
+    const months = [
+        "січня",
+        "лютого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня"
+    ];
 
+    const currentDate = new Date();
+    const messageDate = new Date(date);
+
+    const day = messageDate.getDate();
+    const month = months[messageDate.getMonth()];
+    const year = messageDate.getFullYear();
+
+    if (currentDate.getFullYear() === year) {
+        return `${day} ${month}`;
+    } else {
+        return `${day} ${month}, ${year}`;
+    }
+}
