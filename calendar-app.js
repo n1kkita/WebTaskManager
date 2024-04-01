@@ -34,24 +34,29 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
     eventTextColor: 'white',
 
     select: function(info) {
-        let startDate = document.getElementById('start-date-create');
-        let endDate = document.getElementById('end-date-create');
+        let startDateEl = document.getElementById('start-date-create');
+        let endDateEl = document.getElementById('end-date-create');
 
         taskFormCreate.reset();
 
+        let start = new Date(info.start);
+        let end = new Date(info.end);
+
+        start.setDate(start.getDate() + 1);
+        end.setDate(end.getDate()+1);
+
+        console.log(start);
+        console.log(end);
+
         const startDateFormatted =
-            info.start.getFullYear() + '-' +
-            ('0' + (info.start.getMonth() + 1)).slice(-2) + '-' +
-            ('0' + info.start.getDate()).slice(-2);
+            start.toISOString().split("T")[0];
 
         const endDateFormatted =
-            info.end.getFullYear() + '-' +
-            ('0' + (info.end.getMonth() + 1)).slice(-2) + '-' +
-            ('0' + info.end.getDate()).slice(-2);
+            end.toISOString().split("T")[0];
 
 
-        startDate.value = startDateFormatted;
-        endDate.value = endDateFormatted;
+        startDateEl.value = startDateFormatted;
+        endDateEl.value = endDateFormatted;
 
         taskModalCreate.style.display = 'block';
     },
@@ -99,8 +104,6 @@ function displayTaskInfo(title,description,start,end){
     startEl.textContent = formatDateForTaskModal(start);
     endEl.textContent = formatDateForTaskModal(end);
 }
-
-
 document.querySelectorAll(".close").forEach(span=>{
     span.onclick = function() {
         taskModalCreate.style.display = 'none';
