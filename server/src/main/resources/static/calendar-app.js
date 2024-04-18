@@ -7,6 +7,7 @@ const taskModal = document.getElementById('task-modal');
 
 const urlParams = new URLSearchParams(window.location.search);
 const nameGroup = urlParams.get('name');
+const idGroup = urlParams.get('id');
 
 
 document.getElementById('group-name').textContent = nameGroup;
@@ -69,6 +70,22 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
         displayTaskInfo(event.title,event.extendedProps.description,event.start,event.end);
     }
 });
+fetch(`/tasks/group/${idGroup}`)
+    .then(r=>r.json())
+    .then(tasks=>{
+        tasks.forEach(task=>{
+            calendar.addEvent({
+                title: task.title,
+                start: task.dateOfStart,
+                end: task.dateOfEnd,
+                description: task.description,
+                allDay: true,
+                backgroundColor: 'green',
+                textColor: 'white',
+            });
+        });
+    });
+
 calendar.render();
 taskFormCreate.addEventListener("submit", function (e){
     e.preventDefault();
@@ -79,19 +96,36 @@ function create(){
     let taskTitle = document.getElementById("task-title-create").value;
     let startDate = document.getElementById('start-date-create');
     let endDate = document.getElementById('end-date-create');
-
-
-    calendar.addEvent({
+    const taskDto = {
         title: taskTitle,
-        start: new Date(startDate.value),
-        end: new Date(endDate.value),
         description: taskDescription,
-        allDay: true,
-        backgroundColor: 'green',
-        textColor: 'white',
-    });
+        dateOfStart:startDate.value,
+        dateOfEnd:endDate.value,
+        groupId:idGroup,
+    }
 
-    taskModalCreate.style.display = 'none';
+    console.log(taskDto);
+
+    fetch(`/tasks`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(taskDto)
+    }).then(r=>r.json())
+        .then(task=>{
+            calendar.addEvent({
+                title: task.title,
+                start: task.dateOfStart,
+                end: task.dateOfEnd,
+                description: task.description,
+                allDay: true,
+                backgroundColor: 'green',
+                textColor: 'white',
+            });
+            taskModalCreate.style.display = 'none';
+        })
+
 }
 function displayTaskInfo(title,description,start,end){
 

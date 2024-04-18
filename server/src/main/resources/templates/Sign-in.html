@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Sign in</title>
     <style>
         html, body {
@@ -27,7 +27,7 @@
         <img src="logo.svg" width="200" height="200" alt="Logo">
         </div>
         <h2>Sign in</h2>
-        <form action="#" method="POST">
+        <form>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -51,11 +51,35 @@
 </div>
 <script>
     document.getElementById("registration").addEventListener("click", function (e) {
-        window.location.href = "Sign-up.html";
+        window.location.href = "/Sign-up";
     });
     document.getElementById("sign-in").addEventListener("click", function (e) {
         e.preventDefault();
-        window.location.href = "home.html";
+        const signInForm = {
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
+        };
+
+        fetch('/sign-in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(signInForm)
+        })
+            .then(response => {
+                if(response.ok){
+                    response.json().then(data=>{
+                        // Сохраняем полученные данные в localStorage
+                        localStorage.setItem("userData", JSON.stringify(data));
+                        console.log("User data saved to localStorage:", data);
+                        window.location.href = "/home";
+                    })
+                }
+            }).catch(error => {
+                console.error('Error during registration:', error);
+
+            });
     });
 </script>
 </body>
