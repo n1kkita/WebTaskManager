@@ -2,22 +2,37 @@
 <html lang='en'>
 <head>
     <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <link rel="stylesheet" href="../../../../../style.css">
     <title>Calendar</title>
 </head>
 <body>
 <header>
-    <img src='logo.svg' width='200' height='200' alt='Logo'>
+    <img src='logo.svg' width="200" height="200" alt='Logo'>
     <h2 id="group-name">Group Name</h2>
 </header>
 <nav class="link-bar">
-    <ul class="links">
-        <li class="link"><a href="/home">Back to Home</a></li>
-        <li class="link"><a href="/groups">Back to Groups</a></li>
+    <button class="toggle-btn">&#9776;</button>
+
+    <div class="sidenav">
+        <div class="content-center">
+            <ul class="links">
+                <button style="margin-left: 45px;" class="toggle-btn">&#9776;</button>
+                <li class="link"><a href="/home">Back to home</a></li>
+                <li class="link"><a href="/doc">Back to doc</a></li>
+                <li class="link"><a href="/groups">Back to groups</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="links lg">
+        <li class="link"><a href="/home">Back to home</a></li>
+        <li class="link"><a href="/doc">Back to doc</a></li>
+        <li class="link"><a href="/groups">Back to groups</a></li>
     </ul>
 </nav>
-<div class="content-center" style="margin-top: 10px;">
+<div class="content-center" style="margin: 10px;">
     <div class="text-container">
         <section>
             <h2>About Group Calendar</h2>
@@ -28,14 +43,14 @@
     </div>
 </div>
 
-<div class="content-center" style="margin-top: 10px;">
+<div class="content-center" style="margin: 10px;">
     <div class="text-container">
         <section>
             <p>Tap or pinch and swipe over the dates you want to create a task</p>
         </section>
     </div>
 </div>
-<div id='calendar'></div>
+<div id='calendar' style="margin: 10px;"></div>
 
 <div id="task-modal-create" class="modal">
     <div class="modal-content">
@@ -76,7 +91,7 @@
     </div>
 </div>
 
-
+<script src="nav-bar.js"></script>
 <script src="calendar-app.js"></script>
 </body>
 </html>

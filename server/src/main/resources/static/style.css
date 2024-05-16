@@ -11,41 +11,54 @@ header {
     text-align: center;
 }
 
+
 .link-bar {
     display: flex;
-    text-align: center;
     justify-content: center;
     background-color: #333;
     border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    display: none; /* Скрытие кнопки по умолчанию */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: width 0.5s; /* Используем CSS transition для анимации изменения ширины */
+    padding-top: 60px; /* Пространство для кнопки */
 }
 
 .links {
-    display: flex;
-    margin: 0;
+    list-style-type: none;
     padding: 0;
-    border-radius: 10px;
 }
 
-
 .link {
-    display: block;
-    text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
 
 .link a {
     color: white;
     text-decoration: none;
-    padding: 14px 16px;
 }
-
 
 a:hover {
     background-color: #111;
 }
-
-
 
 .content-center {
     display: flex;
@@ -59,17 +72,60 @@ a:hover {
     border-radius: 12px;
     padding: 10px;
 }
+@media screen and (min-width: 601px) {
+    .text-container {
+        font-size: 24px;
+    }
+    .toggle-btn {
+        display: none;
+    }
+    .sidenav {
+        width: 0;
+    }
+    .links {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .text-container {
+        font-size: 17px;
+    }
+    .links {
+        display: block;
+    }
+    .toggle-btn {
+        display: block;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 90% !important;
+    }
+    .groups-container {
+        max-width: 90% !important;
+    }
+    .links.lg{
+        display: none;
+    }
+    header img {
+        width: 150px;
+        height: 150px;
+    }
+}
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
+
 .groups-container {
     margin: 10px;
     padding: 10px;
     max-width: 40%;
     max-height: 200px;
+    width: 100%;
     overflow-y: scroll;
     border: 2px solid rgb(93, 87, 87);
     border-radius: 12px;
@@ -93,7 +149,7 @@ th, td {
     background-color: #ececec;
     border-radius: 12px;
     border: 2px solid rgb(93, 87, 87);
-    max-width: 40%;
+    max-width: 60%;
 }
 
 .form-group {

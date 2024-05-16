@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../../../../../style.css">
 </head>
@@ -11,14 +12,28 @@
     <img src ="logo.svg" width="200" height="200" alt="Logo">
 </header>
 <nav class="link-bar">
-    <ul class="links">
+    <button class="toggle-btn">&#9776;</button>
+
+    <div class="sidenav">
+        <div class="content-center">
+            <ul class="links">
+                <button style="margin-left: 45px;" class="toggle-btn">&#9776;</button>
+                <li class="link"><a href="/doc.html">Documentation</a></li>
+                <li class="link"><a href="/groups.html">Groups</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="links lg">
         <li class="link"><a href="/doc">Documentation</a></li>
         <li class="link"><a href="/groups">Groups</a></li>
     </ul>
 </nav>
+
+
 <h3 id="account-username" class="content-center"></h3>
 <div class="content-center" style="margin-top: 10px; ">
-    <div class="text-container" style="max-width: 60%">
+    <div class="text-container" style="max-width: 80%">
         <div style="font-family: 'Roboto', sans-serif; background-color: white; padding: 10px;">
             <p>TaskManager is a project aimed at managing tasks and organizing work processes. This system allows you to effectively organize tasks for yourself, your team, or employees, track their performance, and plan your workflow.</p>
 
@@ -38,11 +53,10 @@
 
     </div>
 </div>
+<script src="nav-bar.js"></script>
 <script>
-
     let userData = JSON.parse(localStorage.getItem("userData"));
     document.getElementById("account-username").textContent=userData.username;
-
 </script>
 </body>
 </html>
