@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
     <link rel="stylesheet" href="../../../../../style.css">
     <script src="head-app.js"></script>
@@ -12,14 +13,27 @@
     <img src ="logo.svg" width="200" height="200" alt="Logo">
 </header>
 <nav class="link-bar">
-    <ul class="links">
-        <li class="link"><a href="/home">Back</a>
+    <button class="toggle-btn">&#9776;</button>
+
+    <div class="sidenav">
+        <div class="content-center">
+            <ul class="links">
+                <button style="margin-left: 45px;" class="toggle-btn">&#9776;</button>
+                <li class="link"><a href="/home">Back to home</a></li>
+                <li class="link"><a href="/groups">Back to groups</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="links lg">
+        <li class="link"><a href="/home">Back to home</a></li>
+        <li class="link"><a href="/groups">Back to groups</a></li>
     </ul>
 </nav>
 <div class="content-center" style="padding: 10px;background-color: rgb(248,248,248)">
 
-<div class="text-container">
-    <div>
+<div class="text-container" style="max-width: 90%">
+    <div style="max-width: 100%">
         <section id="getting-started">
             <h2>Getting Started</h2>
             <p>Welcome to Task Manager's documentation. This section will guide you through the basics of using our platform.</p>
@@ -86,10 +100,11 @@
 
         <section id="video-tutorial">
             <h2>Video Tutorial</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allowfullscreen></iframe>
         </section>
     </div>
 </div>
 </div>
+<script src="nav-bar.js"></script>
 </body>
 </html>

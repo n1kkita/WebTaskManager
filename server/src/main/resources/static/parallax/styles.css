@@ -48,20 +48,24 @@ h1, h2, h3, p {
   background-position: center; /* Вирівнює фонове зображення по центру */
 }
 
+
 .home_parallax-img1 {
   background-image: url("head.png");
   z-index: var(--z-normal);
 }
+
 
 .home_parallax-img2 {
   background-image: url("body.png");
   z-index: var(--z-tooltip);
 }
 
+
 .home_parallax-img3 {
   background-image: url("bottom.png");
   z-index: var(--z-fixed);
 }
+
 
 .home_title, .home_subtitle {
   position: absolute;
@@ -101,9 +105,6 @@ h1, h2, h3, p {
   font-size: 1.5rem; /* Встановлює розмір шрифту 1.5rem */
   z-index: var(--z-modal); /* Встановлює значення z-index відповідно до значення змінної --z-modal */
 }
-
-
-
 
 .section {
   height: 100vh;
@@ -158,8 +159,8 @@ h1, h2, h3, p {
     margin-right: auto;
   }
 }
-@media screen and (min-width: 760px) {
 
+@media screen and (min-width: 760px) {
   .home_title {
     top: 27%;
   }
@@ -173,6 +174,7 @@ h1, h2, h3, p {
   }
 
 }
+
 @media screen and (min-width: 768px) {
   :root {
     --biggest-font-size: 7rem;
@@ -180,9 +182,6 @@ h1, h2, h3, p {
     --normal-font-size: 1rem;
   }
 }
-
-
-
 
 /*===== BASE =====*/
 *, ::before, ::after {
