@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Documentation</title>
-    <link rel="stylesheet" href="../../../../../style.css">
-    <script src="head-app.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
     <h1>Documentation</h1>
-    <img src ="logo.svg" width="200" height="200" alt="Logo">
+    <img src ="/static/logo.svg" width="200" height="200" alt="Logo">
 </header>
 <nav class="link-bar">
-    <ul class="links">
-        <li class="link"><a href="/home">Back</a>
+    <button class="toggle-btn">&#9776;</button>
+
+    <div class="sidenav">
+        <div class="content-center">
+            <ul class="links">
+                <button style="margin-left: 45px;" class="toggle-btn">&#9776;</button>
+                <li class="link"><a href="/server/src/main/resources/templates/home.html">Back to home</a></li>
+                <li class="link"><a href="/server/src/main/resources/templates/doc.html">Back to doc</a></li>
+                <li class="link"><a href="/server/src/main/resources/templates/groups.html">Back to groups</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="links lg">
+        <li class="link"><a href="/server/src/main/resources/templates/home.html">Back to home</a></li>
+        <li class="link"><a href="/server/src/main/resources/templates/doc.html">Back to doc</a></li>
+        <li class="link"><a href="/server/src/main/resources/templates/groups.html">Back to groups</a></li>
     </ul>
 </nav>
 <div class="content-center" style="padding: 10px;background-color: rgb(248,248,248)">
@@ -91,5 +106,6 @@
     </div>
 </div>
 </div>
+<script src="/static/nav-bar.js"></script>
 </body>
 </html>
